@@ -1,0 +1,807 @@
+ <div
+        className="container d-sm-none d-lg-block  bg-form "
+       
+      >
+        <form
+          className="bg-white  d-flex   justify-content-between align-items-center gap-4   "
+          style={{
+            height: "86px",
+            borderRadius: "10px",
+            width: "1188px",
+          }}
+        > 
+          <div>
+           <div className="text-center">
+            <label htmlFor="location" className="form-label fw-bold">
+              LOCATION
+            </label>
+            <input
+              type="text"
+              id="location"
+              className="form-control text-center  "
+              placeholder="eg.  Gbagada"
+              style={{ border: "none" }}
+            />
+          </div>
+
+          <hr className="form-hr" />
+
+          <div className="text-center">
+            <label htmlFor="property" className="form-label fw-bold">
+              PROPERTY TYPE
+            </label>
+            <input
+              type="text"
+              id="property"
+              className="form-control text-center "
+              placeholder="eg. Duplex, Bedroom Flat"
+              style={{ border: "none" }}
+            />
+          </div>
+          </div>
+          
+         
+
+          <hr className="form-hr" />
+
+          <div className="text-center ">
+            <label htmlFor="bedroom" className="form-label fw-bold">
+              BEDROOM
+            </label>
+            <div className="input-wrapper">
+              {/* Minus icon */}
+              <CiCircleMinus className="icon" onClick={handleDecrement} />
+
+              {/* Number Display */}
+              <input
+                type="text"
+                id="bedroom"
+                className="bedroom-input"
+                value={bedroomCount}
+                readOnly // Prevent manual input
+              />
+
+              {/* Plus icon */}
+              <CiCirclePlus className="icon" onClick={handleIncrement} />
+            </div>
+          </div>
+
+          <div
+            className=" find-property d-flex justify-content-center align-items-center"
+            style={{
+              width: "298.39px ",
+              height: "87px",
+              borderRadius: "0px 10px 10px 0px",
+              backgroundColor: "#3D9970",
+            }}
+          >
+            {" "}
+            <h3 className="text-white  fs-4"> Find Property</h3>
+          </div>
+        </form>
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+         import React from "react";
+import "../styles/footer.css";
+import logo from "../assets/images/logo.png";
+import { IoCall } from "react-icons/io5";
+import { FaMapMarkerAlt } from "react-icons/fa";
+import { HiOutlineMail } from "react-icons/hi";
+
+import { Link } from "react-router-dom";
+const Footer = () => {
+  return (
+    <div className="footer-bg d-flex ">
+      <div className="footer-main-div container text-white ">
+        {/* description  first-div*/}
+        <div className="d-flex column  justify-content-between align-items-center">
+          {" "}
+          <div className=" d-flex flex-column gap-5  footer-description">
+            <img src={logo} alt="" className="img-fluid" />
+            <h4
+              style={{
+                fontWeight: "400",
+                fontSize: "16px",
+                lineHeight: "25.6px",
+              }}
+            >
+              Discover, rent, and find your ideal home hassle-free <br /> with
+              BetaHouse. Take control of your rental journey <br /> today!
+            </h4>
+
+            <div>
+              {" "}
+              <p className="d-flex gap-3 align-items-center">
+                {" "}
+                <FaMapMarkerAlt />
+                95 Tinubu Estate, Lekki, Lagos
+              </p>
+              <p className="d-flex gap-3 align-items-center">
+                {" "}
+                <IoCall />
+                +234 675 8935 675
+              </p>
+              <p className="d-flex gap-3 align-items-center">
+                {" "}
+                <HiOutlineMail />
+                support@rentbetahouse.com
+              </p>
+            </div>
+          </div>
+          {/* the container for the three divs */}
+          {/* quick lines second div */}
+          <div className="d-flex flex-column gap-4">
+            <h2>Quick Links</h2>
+            <Link
+              to="/"
+              className="nav-link  "
+              style={{
+                fontWeight: "400",
+                fontSize: "18px",
+              }}
+            >
+              Home
+            </Link>
+
+            <Link
+              to="#"
+              className="nav-link  "
+              style={{
+                fontWeight: "400",
+                fontSize: "18px",
+              }}
+            >
+              Properties
+            </Link>
+
+            <Link
+              to="#"
+              className=" nav-link "
+              style={{
+                fontWeight: "400",
+                fontSize: "18px",
+              }}
+            >
+              About Us
+            </Link>
+
+            <Link
+              to="#"
+              className=" nav-link  "
+              style={{
+                fontWeight: "400",
+                fontSize: "18px",
+              }}
+            >
+              Contact Us
+            </Link>
+            <Link
+              to="#"
+              className=" nav-link  "
+              style={{
+                fontWeight: "400",
+                fontSize: "18px",
+              }}
+            >
+              Blog
+            </Link>
+          </div>
+          {/*more third div */}
+          <div>3</div>
+          {/* popular search fourth div */}
+          <div>4</div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Footer;
+
+
+
+
+
+import React from "react";
+import "../styles/footer.css";
+import logo from "../assets/images/logo.png";
+import { IoCall } from "react-icons/io5";
+import { FaMapMarkerAlt } from "react-icons/fa";
+import { HiOutlineMail } from "react-icons/hi";
+
+import { Link } from "react-router-dom";
+const Footer = () => {
+  return (
+    <div className="footer-bg d-flex  justify-content-between align-items-center">
+      <div className="footer-main-div container text-white   ">
+        {/* description  first-div*/}
+        <div className="d-flex   justify-content-between footer-description ">
+          {" "}
+          <div className=" d-flex flex-column gap-5  ">
+            <img src={logo} alt="" className="img-fluid" />
+            <h4
+              style={{
+                fontWeight: "400",
+                fontSize: "16px",
+                lineHeight: "25.6px",
+              }}
+            >
+              Discover, rent, and find your ideal home hassle-free <br /> with
+              BetaHouse. Take control of your rental journey <br /> today!
+            </h4>
+
+            <div>
+              {" "}
+              <p className="d-flex gap-3 align-items-center">
+                {" "}
+                <FaMapMarkerAlt />
+                95 Tinubu Estate, Lekki, Lagos
+              </p>
+              <p className="d-flex gap-3 align-items-center">
+                {" "}
+                <IoCall />
+                +234 675 8935 675
+              </p>
+              <p className="d-flex gap-3 align-items-center">
+                {" "}
+                <HiOutlineMail />
+                support@rentbetahouse.com
+              </p>
+            </div>
+          </div>
+          {/* the container for the three divs */}
+          {/* quick lines second div */}
+          <div className="d-flex flex-column gap-4 quick-links">
+            <h2>Quick Links</h2>
+            <Link
+              to="/"
+              className="nav-link  "
+              style={{
+                fontWeight: "400",
+                fontSize: "18px",
+              }}
+            >
+              Home
+            </Link>
+
+            <Link
+              to="#"
+              className="nav-link  "
+              style={{
+                fontWeight: "400",
+                fontSize: "18px",
+              }}
+            >
+              Properties
+            </Link>
+
+            <Link
+              to="#"
+              className=" nav-link "
+              style={{
+                fontWeight: "400",
+                fontSize: "18px",
+              }}
+            >
+              About Us
+            </Link>
+
+            <Link
+              to="#"
+              className=" nav-link  "
+              style={{
+                fontWeight: "400",
+                fontSize: "18px",
+              }}
+            >
+              Contact Us
+            </Link>
+            <Link
+              to="#"
+              className=" nav-link  "
+              style={{
+                fontWeight: "400",
+                fontSize: "18px",
+              }}
+            >
+              Blog
+            </Link>
+          </div>
+          {/*more third div */}
+          <div>3</div>
+          {/* popular search fourth div */}
+          <div>4</div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Footer;
+
+
+
+
+
+
+
+
+
+
+
+import React from "react";
+import "../styles/footer.css";
+import logo from "../assets/images/logo.png";
+import { IoCall } from "react-icons/io5";
+import { FaMapMarkerAlt } from "react-icons/fa";
+import { HiOutlineMail } from "react-icons/hi";
+
+import { Link } from "react-router-dom";
+const Footer = () => {
+  return (
+    <div className="footer-bg d-flex   align-items-center flex-column">
+      <div className="footer-main-div container text-white   ">
+        {/* description  first-div*/}
+        <div className="d-flex   justify-content-between footer-description ">
+          {" "}
+          <div className=" d-flex flex-column gap-5  ">
+            <img src={logo} alt="" className="img-fluid" />
+            <h4
+              style={{
+                fontWeight: "400",
+                fontSize: "16px",
+                lineHeight: "25.6px",
+              }}
+            >
+              Discover, rent, and find your ideal home hassle-free <br /> with
+              BetaHouse. Take control of your rental journey <br /> today!
+            </h4>
+
+            <div className="details">
+              {" "}
+              <p className="d-flex gap-3 align-items-center">
+                {" "}
+                <FaMapMarkerAlt />
+                95 Tinubu Estate, Lekki, Lagos
+              </p>
+              <p className="d-flex gap-3 align-items-center">
+                {" "}
+                <IoCall />
+                +234 675 8935 675
+              </p>
+              <p className="d-flex gap-3 align-items-center">
+                {" "}
+                <HiOutlineMail />
+                support@rentbetahouse.com
+              </p>
+            </div>
+          </div>
+          {/* the container for the three divs */}
+          {/* quick lines second div */}
+          <div className="d-flex flex-column gap-4 quick-links">
+            <h2 className="fw-bold">Quick Links</h2>
+            <Link
+              to="/"
+              className="nav-link  "
+              style={{
+                fontWeight: "400",
+                fontSize: "18px",
+              }}
+            >
+              Home
+            </Link>
+
+            <Link
+              to="#"
+              className="nav-link  "
+              style={{
+                fontWeight: "400",
+                fontSize: "18px",
+              }}
+            >
+              Properties
+            </Link>
+
+            <Link
+              to="#"
+              className=" nav-link "
+              style={{
+                fontWeight: "400",
+                fontSize: "18px",
+              }}
+            >
+              About Us
+            </Link>
+
+            <Link
+              to="#"
+              className=" nav-link  "
+              style={{
+                fontWeight: "400",
+                fontSize: "18px",
+              }}
+            >
+              Contact Us
+            </Link>
+            <Link
+              to="#"
+              className=" nav-link  "
+              style={{
+                fontWeight: "400",
+                fontSize: "18px",
+              }}
+            >
+              Blog
+            </Link>
+          </div>
+          {/*more third div */}
+          <div className="d-flex flex-column gap-4 quick-links">
+            <h2 className="fw-bold">More</h2>
+            <Link
+              to="#"
+              className="nav-link  "
+              style={{
+                fontWeight: "400",
+                fontSize: "18px",
+              }}
+            >
+              Agents
+            </Link>
+
+            <Link
+              to="#"
+              className="nav-link  "
+              style={{
+                fontWeight: "400",
+                fontSize: "18px",
+              }}
+            >
+              Affordable Houses
+            </Link>
+
+            <Link
+              to="#"
+              className=" nav-link "
+              style={{
+                fontWeight: "400",
+                fontSize: "18px",
+              }}
+            >
+              FAQ’s
+            </Link>
+          </div>
+          {/* popular search fourth div */}
+          <div className="d-flex flex-column gap-4 quick-links">
+            <h2 className="fw-bold">Popular Search</h2>
+            <Link
+              to="#"
+              className="nav-link  "
+              style={{
+                fontWeight: "400",
+                fontSize: "18px",
+              }}
+            >
+              Apartment for sale
+            </Link>
+
+            <Link
+              to="#"
+              className="nav-link  "
+              style={{
+                fontWeight: "400",
+                fontSize: "18px",
+              }}
+            >
+              Apartment for rent
+            </Link>
+
+            <Link
+              to="#"
+              className=" nav-link "
+              style={{
+                fontWeight: "400",
+                fontSize: "18px",
+              }}
+            >
+              3 bedroom flat
+            </Link>
+
+            <Link
+              to="#"
+              className=" nav-link "
+              style={{
+                fontWeight: "400",
+                fontSize: "18px",
+              }}
+            >
+              Bungalow
+            </Link>
+          </div>
+        </div>
+      </div>
+
+      {/* hr */}
+      <div className="designedby">
+
+      </div>
+    </div>
+  );
+};
+
+export default Footer;
+
+
+
+
+import React from "react";
+import "../styles/footer.css";
+import logo from "../assets/images/logo.png";
+import { IoCall } from "react-icons/io5";
+import { FaMapMarkerAlt } from "react-icons/fa";
+import { HiOutlineMail } from "react-icons/hi";
+
+import { Link } from "react-router-dom";
+const Footer = () => {
+  return (
+    <section>
+      <div className="footer-bg d-flex flex-column">
+        <div className="d-flex justify-content-between align-items-center flex-column">
+          <div></div>
+          <div className="designedby d-flex justify-content-between align-items-center text-white">
+            {" "}
+            <h2
+              style={{
+                fontWeight: "400",
+                fontSize: "14px",
+              }}
+            >
+              Copyright 2023 Betahouse | Designed by Michael.fig
+            </h2>
+            <Link
+              to="#"
+              className=" nav-link "
+              style={{
+                fontWeight: "500",
+                fontSize: "15px",
+              }}
+            >
+              Privacy Policy
+            </Link>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Footer;
+
+
+  <div className="footer-main-div container text-white    ">
+        {/* description  first-div*/}
+        <div className="d-flex   justify-content-between footer-description ">
+          {" "}
+          <div className=" d-flex flex-column gap-5  ">
+            <img src={logo} alt="" className="img-fluid" />
+            <h4
+              style={{
+                fontWeight: "400",
+                fontSize: "16px",
+                lineHeight: "25.6px",
+              }}
+            >
+              Discover, rent, and find your ideal home hassle-free <br /> with
+              BetaHouse. Take control of your rental journey <br /> today!
+            </h4>
+
+            <div className="details">
+              {" "}
+              <p className="d-flex gap-3 align-items-center">
+                {" "}
+                <FaMapMarkerAlt />
+                95 Tinubu Estate, Lekki, Lagos
+              </p>
+              <p className="d-flex gap-3 align-items-center">
+                {" "}
+                <IoCall />
+                +234 675 8935 675
+              </p>
+              <p className="d-flex gap-3 align-items-center">
+                {" "}
+                <HiOutlineMail />
+                support@rentbetahouse.com
+              </p>
+            </div>
+          </div>
+          {/* the container for the three divs */}
+          {/* quick lines second div */}
+          <div className="d-flex flex-column gap-4 quick-links">
+            <h2 className="fw-bold">Quick Links</h2>
+            <Link
+              to="/"
+              className="nav-link  "
+              style={{
+                fontWeight: "400",
+                fontSize: "18px",
+              }}
+            >
+              Home
+            </Link>
+
+            <Link
+              to="#"
+              className="nav-link  "
+              style={{
+                fontWeight: "400",
+                fontSize: "18px",
+              }}
+            >
+              Properties
+            </Link>
+
+            <Link
+              to="#"
+              className=" nav-link "
+              style={{
+                fontWeight: "400",
+                fontSize: "18px",
+              }}
+            >
+              About Us
+            </Link>
+
+            <Link
+              to="#"
+              className=" nav-link  "
+              style={{
+                fontWeight: "400",
+                fontSize: "18px",
+              }}
+            >
+              Contact Us
+            </Link>
+            <Link
+              to="#"
+              className=" nav-link  "
+              style={{
+                fontWeight: "400",
+                fontSize: "18px",
+              }}
+            >
+              Blog
+            </Link>
+          </div>
+          {/*more third div */}
+          <div className="d-flex flex-column gap-4 quick-links">
+            <h2 className="fw-bold">More</h2>
+            <Link
+              to="#"
+              className="nav-link  "
+              style={{
+                fontWeight: "400",
+                fontSize: "18px",
+              }}
+            >
+              Agents
+            </Link>
+
+            <Link
+              to="#"
+              className="nav-link  "
+              style={{
+                fontWeight: "400",
+                fontSize: "18px",
+              }}
+            >
+              Affordable Houses
+            </Link>
+
+            <Link
+              to="#"
+              className=" nav-link "
+              style={{
+                fontWeight: "400",
+                fontSize: "18px",
+              }}
+            >
+              FAQ’s
+            </Link>
+          </div>
+          {/* popular search fourth div */}
+          <div className="d-flex flex-column gap-4 quick-links">
+            <h2 className="fw-bold">Popular Search</h2>
+            <Link
+              to="#"
+              className="nav-link  "
+              style={{
+                fontWeight: "400",
+                fontSize: "18px",
+              }}
+            >
+              Apartment for sale
+            </Link>
+
+            <Link
+              to="#"
+              className="nav-link  "
+              style={{
+                fontWeight: "400",
+                fontSize: "18px",
+              }}
+            >
+              Apartment for rent
+            </Link>
+
+            <Link
+              to="#"
+              className=" nav-link "
+              style={{
+                fontWeight: "400",
+                fontSize: "18px",
+              }}
+            >
+              3 bedroom flat
+            </Link>
+
+            <Link
+              to="#"
+              className=" nav-link "
+              style={{
+                fontWeight: "400",
+                fontSize: "18px",
+              }}
+            >
+              Bungalow
+            </Link>
+          </div>
+        </div>
+      </div>
+
+      {/* hr */}
+      <div className="designedby container d-flex justify-content-between align-items-center text-white">
+        {" "}
+        <h2
+          style={{
+            fontWeight: "400",
+            fontSize: "14px",
+          }}
+        >
+          Copyright 2023 Betahouse | Designed by Michael.fig
+        </h2>
+        <Link
+          to="#"
+          className=" nav-link "
+          style={{
+            fontWeight: "500",
+            fontSize: "15px",
+          }}
+        >
+          Privacy Policy
+        </Link>
+      </div>
+
+
+
+
+<footer>
+  <div 4 > 
+  hr
+  div
+</footer>
