@@ -805,3 +805,16 @@ export default Footer;
   hr
   div
 </footer>
+
+<div
+            className=" find-property d-flex justify-content-center align-items-center"
+            style={{
+              width: "298.39px ",
+              height: "87px",
+              borderRadius: "0px 10px 10px 0px",
+              backgroundColor: "#3D9970",
+            }}
+          >
+            {" "}
+            <button className="text-white  fs-4"> Find Property</button>
+          </div>

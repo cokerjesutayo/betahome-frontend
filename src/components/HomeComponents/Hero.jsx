@@ -86,18 +86,7 @@ const Hero = () => {
             </div>
           </div>
 
-          <div
-            className=" find-property d-flex justify-content-center align-items-center"
-            style={{
-              width: "298.39px ",
-              height: "87px",
-              borderRadius: "0px 10px 10px 0px",
-              backgroundColor: "#3D9970",
-            }}
-          >
-            {" "}
-            <h3 className="text-white  fs-4"> Find Property</h3>
-          </div>
+          <button className="find-button text-white"> Find Property</button>
         </form>
       </div>
     </div>

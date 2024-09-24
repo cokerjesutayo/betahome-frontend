@@ -41,6 +41,13 @@
 .icon:hover {
   color: #30343b; /* Change color on hover */
 }
+.find-button{
+  width: 297.39px;
+  height: 87px;
+  border-radius: 0px 10px 10px 0px ;
+   background-color:#3D9970 ;
+   border: none;
+}
 
 @media (max-width: 991px) {
   .bg-form {

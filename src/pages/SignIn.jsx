@@ -1,12 +1,61 @@
-import React from 'react'
+import React,{useState} from 'react'
 import { Link } from "react-router-dom";
 import"../styles/signup.css"
 import { FcGoogle } from "react-icons/fc";
+import { useNavigate } from "react-router-dom";
+import "react-toastify/dist/ReactToastify.css";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { loginschema } from "../../utils/formValidator";
+import { ToastContainer, toast } from "react-toastify";
+import logo from "../assets/images/logo.png"
+import axios from "axios";
 const SignIn = () => {
+    const redirect = useNavigate();
+    const [show, setShow] = useState(false);
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const toggleShow = (e) => {
+      e.preventDefault();
+      setShow(!show);
+    };
+
+    
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({ resolver: yupResolver(loginschema) });
+
+    const onSubmit = async (data) => {
+      setIsSubmitting(true);
+      // Handle form submission
+      data.email = data.email.toLowerCase();
+      try {
+        const { data: result } = await axios.post(
+          "https://tayo-betahome.onrender.com/api/v1/login",
+          data
+        );
+        setIsSubmitting(false);
+        if (result.success) {
+          localStorage.setItem("token", result.token);
+          // redirect to login
+          redirect("/");
+        }
+      } catch (error) {
+        console.log(error);
+        setIsSubmitting(false);
+        toast.error(error?.response?.data?.error);
+      }
+    };
+  
   return (
     <section className="signing-section d-flex flex-row vh-100 ">
       <div className="d-flex justify-content-center align-items-center form-part p-1 p-lg-4 ">
-        <form className=" p-2 p-lg-5 ">
+        <form className=" p-2 p-lg-5 " onSubmit={handleSubmit(onSubmit)}>
+          <ToastContainer autoClose={7000} className={`position-absolute`} />
+          <Link to="/" className="d-block  my-2 text-center">
+            <img src={logo} alt="" style={{ width: "90px" }} />
+          </Link>
           <h2>Welcome Back to BetaHouse! </h2>
           <p>Lets get started by filling out the information below</p>
 
@@ -17,9 +66,18 @@ const SignIn = () => {
             <input
               type="email"
               id="email"
-              className="form-control"
               placeholder="Enter your Email"
+              className={`form-control rounded-4 shadow-none  mx-auto my-3 text-dark border-1 border-secondary p-3 ${
+                errors.email ? "is-invalid" : ""
+              } `}
+              {...register("email")}
             />
+
+            {errors.email && (
+              <div className="invalid-feedback neededwidth">
+                {errors.email.message}
+              </div>
+            )}
           </div>
           <div className="my-3">
             <label htmlFor="password" className="form-label">
@@ -28,9 +86,14 @@ const SignIn = () => {
             <input
               type="password"
               id="password"
-              className="form-control"
               placeholder="Enter your password"
+              className={`form-control rounded-4 shadow-none  mx-auto my-3 text-dark border-1 border-secondary p-3 ${
+                errors.password ? "is-invalid" : ""
+              } `}
             />
+            {errors.password && (
+              <div className="invalid-feedback">{errors.password.message}</div>
+            )}
           </div>
           <div className="d-flex my-3 justify-content-between align-items-center">
             <div className=" form-check ">
