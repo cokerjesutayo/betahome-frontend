@@ -12,12 +12,9 @@ import logo from "../assets/images/logo.png";
 import axios from "axios";
 const SignIn = () => {
   const redirect = useNavigate();
-  const [show, setShow] = useState(false);
+
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const toggleShow = (e) => {
-    e.preventDefault();
-    setShow(!show);
-  };
+
 
   const {
     register,
@@ -89,7 +86,7 @@ const SignIn = () => {
               className={`form-control rounded-4 shadow-none  mx-auto my-3 text-dark border-1 border-secondary p-3 ${
                 errors.password ? "is-invalid" : ""
               } `}
-              onClick={toggleShow}
+              {...register("password")}
             />
             {errors.password && (
               <div className="invalid-feedback">{errors.password.message}</div>
@@ -120,7 +117,7 @@ const SignIn = () => {
               }}
               extraClass={"submitbtn mx-auto d-block neededwidth"}
             >
-            {  isSubmitting ? "Logging In..... " : "Log In"}
+              {isSubmitting ? "Logging In..... " : "Log In"}
             </button>
           </div>
           <div className="d-flex align-items-center justify-content-center gap-2 mb-3">
