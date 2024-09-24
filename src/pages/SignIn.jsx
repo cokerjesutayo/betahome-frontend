@@ -1,6 +1,6 @@
-import React,{useState} from 'react'
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import"../styles/signup.css"
+import "../styles/signup.css";
 import { FcGoogle } from "react-icons/fc";
 import { useNavigate } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
@@ -8,46 +8,45 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { loginschema } from "../../utils/formValidator";
 import { ToastContainer, toast } from "react-toastify";
-import logo from "../assets/images/logo.png"
+import logo from "../assets/images/logo.png";
 import axios from "axios";
 const SignIn = () => {
-    const redirect = useNavigate();
-    const [show, setShow] = useState(false);
-    const [isSubmitting, setIsSubmitting] = useState(false);
-    const toggleShow = (e) => {
-      e.preventDefault();
-      setShow(!show);
-    };
+  const redirect = useNavigate();
+  const [show, setShow] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const toggleShow = (e) => {
+    e.preventDefault();
+    setShow(!show);
+  };
 
-    
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm({ resolver: yupResolver(loginschema) });
 
-    const onSubmit = async (data) => {
-      setIsSubmitting(true);
-      // Handle form submission
-      data.email = data.email.toLowerCase();
-      try {
-        const { data: result } = await axios.post(
-          "https://tayo-betahome.onrender.com/api/v1/login",
-          data
-        );
-        setIsSubmitting(false);
-        if (result.success) {
-          localStorage.setItem("token", result.token);
-          // redirect to login
-          redirect("/");
-        }
-      } catch (error) {
-        console.log(error);
-        setIsSubmitting(false);
-        toast.error(error?.response?.data?.error);
+  const onSubmit = async (data) => {
+    setIsSubmitting(true);
+    // Handle form submission
+    data.email = data.email.toLowerCase();
+    try {
+      const { data: result } = await axios.post(
+        "https://tayo-betahome.onrender.com/api/v1/login",
+        data
+      );
+      setIsSubmitting(false);
+      if (result.success) {
+        localStorage.setItem("token", result.token);
+        // redirect to homepage
+        redirect("/");
       }
-    };
-  
+    } catch (error) {
+      console.log(error);
+      setIsSubmitting(false);
+      toast.error(error?.response?.data?.error);
+    }
+  };
+
   return (
     <section className="signing-section d-flex flex-row vh-100 ">
       <div className="d-flex justify-content-center align-items-center form-part p-1 p-lg-4 ">
@@ -90,6 +89,7 @@ const SignIn = () => {
               className={`form-control rounded-4 shadow-none  mx-auto my-3 text-dark border-1 border-secondary p-3 ${
                 errors.password ? "is-invalid" : ""
               } `}
+              onClick={toggleShow}
             />
             {errors.password && (
               <div className="invalid-feedback">{errors.password.message}</div>
@@ -118,8 +118,9 @@ const SignIn = () => {
                 padding: " 7px 10px 7px 10px",
                 backgroundColor: "#3D9970",
               }}
+              extraClass={"submitbtn mx-auto d-block neededwidth"}
             >
-              Sign Up
+            {  isSubmitting ? "Logging In..... " : "Log In"}
             </button>
           </div>
           <div className="d-flex align-items-center justify-content-center gap-2 mb-3">
@@ -150,6 +151,6 @@ const SignIn = () => {
       <div className="signing-bg d-none d-lg-block w-50"></div>
     </section>
   );
-}
+};
 
-export default SignIn
+export default SignIn;
