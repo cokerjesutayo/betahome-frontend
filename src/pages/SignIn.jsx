@@ -145,7 +145,7 @@ const SignIn = () => {
           </p>
         </form>
       </div>
-      <div className="signing-bg d-none d-lg-block w-50"></div>
+      <div className="signing-bg d-none d-lg-block w-50"> <img src={logo} alt=""  className="p-5"/></div>
     </section>
   );
 };
