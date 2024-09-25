@@ -13,7 +13,7 @@ const SliderCard = ({
   return (
     <div
       style={{ width: "300px", height: "412px" }}
-      className="position-relative"
+      className="position-relative text-white"
     >
       <img
         src={image}
