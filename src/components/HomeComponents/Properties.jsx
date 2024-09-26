@@ -18,6 +18,7 @@ import "../../styles/properties.css";
 import axios from "axios";
 import FallBackLoader from "../FallBackLoader";
 import PropertyCard from "../PropertyCard";
+import Paginate from "../Paginate";
 
 const Properties = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -97,6 +98,8 @@ const Properties = () => {
         <p>4</p>
         <RiArrowRightSLine  />
       </div>
+
+      <Paginate/>
     </section>
   );
 };

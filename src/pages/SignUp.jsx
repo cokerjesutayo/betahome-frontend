@@ -10,6 +10,7 @@ import { registerschema } from "../../utils/formValidator";
 import { ToastContainer, toast } from "react-toastify";
 import logo from "../assets/images/logo.png";
 import axios from "axios";
+
 const SignUp = () => {
     const redirect = useNavigate();
  
@@ -195,7 +196,12 @@ const SignUp = () => {
           </p>
         </form>
       </div>
-      <div className="signing-bg d-none d-lg-block w-50"><img src={logo} alt=""  className="p-5"/> </div>
+      <div className="signing-bg d-none d-lg-block w-50">
+           <Link to="/"> 
+           
+        <img src= {logo}  h  alt=""  className="p-5"/>
+           </Link>
+       </div>
     </section>
   );
 };
